@@ -11,20 +11,32 @@ class LogZoneSDK {
   }
 
   /**
-   * Lista os projetos da API
+   * Cria um novo log
+   * @param {Object} logData - Dados do log
+   * @param {string} logData.project - ID do projeto
+   * @param {string} logData.level - Nível do log (ex: error, info, warn)
+   * @param {string} logData.message - Mensagem do log
+   * @param {string} [logData.context] - Contexto adicional do log
    */
-  async listarProjetos() {
+  async criarLog(logData) {
     try {
-      const response = await axios.get(`${this.apiUrl}/projects`, {
-        headers: this.apiKey ? { Authorization: `Bearer ${this.apiKey}` } : {}
-      });
+      const response = await axios.post(
+        `${this.apiUrl}/logs`,
+        logData,
+        {
+          headers: this.apiKey ? { Authorization: `Bearer ${this.apiKey}` } : {}
+        }
+      );
 
-      // Mostra no terminal (debug)
-      console.log('Resposta da API:', response.data);
+      // Debug no terminal
+      console.log('Log criado com sucesso:', response.data);
 
       return response.data;
     } catch (error) {
-      console.error('Erro ao conectar com a API:', error.message);
+      console.error('Erro ao criar log:', error.message);
+      if (error.response) {
+        console.error('Detalhes:', error.response.data);
+      }
       throw error;
     }
   }
