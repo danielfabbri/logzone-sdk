@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-class MeuLoggerSDK {
+class LogZoneSDK {
   constructor({ apiUrl, apiKey }) {
     this.apiUrl = apiUrl || process.env.BASE_API_URL || 'http://localhost:3000/api/v1';
     this.apiKey = apiKey || process.env.API_KEY || null;
@@ -30,4 +30,4 @@ class MeuLoggerSDK {
   }
 }
 
-module.exports = MeuLoggerSDK;
+module.exports = LogZoneSDK;

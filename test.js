@@ -1,6 +1,6 @@
-const MeuLoggerSDK = require('./src');
+const LogZoneSDK = require('./src');
 
-const sdk = new MeuLoggerSDK({
+const sdk = new LogZoneSDK({
   apiUrl: 'http://localhost:3000/api/v1',
   apiKey: 'SEU_API_KEY_AQUI'
 });

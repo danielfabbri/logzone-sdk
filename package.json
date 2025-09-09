@@ -1,5 +1,5 @@
 {
-  "name": "logzone_sdk",
+  "name": "logzone-sdk",
   "version": "1.0.0",
   "description": "Logzone SDK - Embed the Leadzone SDK",
   "main": "src/index.js",
@@ -9,16 +9,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielfabbri/logzone_sdk.git"
+    "url": "git+https://github.com/danielfabbri/logzone-sdk.git"
   },
   "keywords": [],
   "author": "Daniel Fabbri and Wendell Lavor",
   "license": "MIT",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/danielfabbri/logzone_sdk/issues"
+    "url": "https://github.com/danielfabbri/logzone-sdk/issues"
   },
-  "homepage": "https://github.com/danielfabbri/logzone_sdk#readme",
+  "homepage": "https://github.com/danielfabbri/logzone-sdk#readme",
   "dependencies": {
     "axios": "^1.11.0",
     "dotenv": "^17.2.2",

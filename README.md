@@ -5,10 +5,9 @@ Como usar o SDK em seu projeto:
 
 
 
-const MeuLoggerSDK = require('meu-logger-sdk');
+const LogZoneSDK = require('logzone-sdk');
 
-const sdk = new MeuLoggerSDK({
-  apiUrl: 'http://localhost:3000/api/v1',
+const sdk = new LogZoneSDK({
   apiKey: 'SEU_TOKEN_AQUI'
 });
 
