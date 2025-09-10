@@ -278,11 +278,11 @@ This project is licensed under the **MIT License**.
 
 ---
 ## Authors
-Developed by [Daniel Fabbri](https://www.linkedin.com/daniel-fabbri-019121ba/) and [Wendell Lavor](https://github.com/wendellfranck).
+Developed by [Daniel Fabbri](https://github.com/danielfabbri) and [Wendell Lavor](https://github.com/wendellfranck).
 
 
 ---
 
 ## Changelog
 - **Unreleased**: Add TypeScript types, advanced configuration and batching (planned).  
-- **1.0.0**: Initial minimal SDK (basic `createLog` method).
+- **1.0.3**: Initial minimal SDK (basic `createLog` method).
