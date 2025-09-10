@@ -1,6 +1,6 @@
 {
   "name": "logzone-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Logzone SDK - Embed the Leadzone SDK",
   "main": "src/index.js",
   "scripts": {
