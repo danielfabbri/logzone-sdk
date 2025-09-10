@@ -19,7 +19,7 @@ It aims to make sending error, warning and info logs simple and consistent.
   - [Environment variables (recommended)](#environment-variables-recommended)  
 - [API Reference](#api-reference)  
   - [`LogZoneSDK`](#logzonesdk)  
-  - [`criarLog(options)`](#criarlogoptions)  
+  - [`createLog(options)`](#createlogoptions)  
 - [Parameters](#parameters)  
 - [Examples](#examples)  
   - [Basic example](#basic-example)  
@@ -34,7 +34,7 @@ It aims to make sending error, warning and info logs simple and consistent.
 ---
 
 ## Features
-- Simple, minimal API to send logs (`criarLog`)  
+- Simple, minimal API to send logs (`createLog`)  
 - Async/Promise-based calls  
 - Designed to be used in Node.js services and scripts  
 - Lightweight — small surface area to integrate quickly
@@ -67,7 +67,7 @@ const sdk = new LogZoneSDK();
 
 async function main() {
   try {
-    await sdk.criarLog({
+    await sdk.createLog({
       apiKey: 'YOUR_API_KEY',
       project: 'YOUR_PROJECT_ID',
       level: 'error',
@@ -91,7 +91,7 @@ import LogZoneSDK from 'logzone-sdk';
 
 const sdk = new LogZoneSDK();
 
-await sdk.criarLog({
+await sdk.createLog({
   apiKey: process.env.LOGZONE_API_KEY,
   project: process.env.LOGZONE_PROJECT,
   level: 'warn',
@@ -114,7 +114,7 @@ Then in code:
 ```js
 const sdk = new (require('logzone-sdk'))();
 
-await sdk.criarLog({
+await sdk.createLog({
   apiKey: process.env.LOGZONE_API_KEY,
   project: process.env.LOGZONE_PROJECT,
   level: 'info',
@@ -133,11 +133,11 @@ Constructs a new SDK instance.
 const sdk = new LogZoneSDK();
 ```
 
-> The SDK constructor currently does not require options. All request-scoped credentials (like API key and project) are provided on each `criarLog` call.
+> The SDK constructor currently does not require options. All request-scoped credentials (like API key and project) are provided on each `createLog` call.
 
 ---
 
-### `criarLog(options) → Promise<void>`
+### `createLog(options) → Promise<void>`
 Sends a single log entry to Leadzone.
 
 **Parameters (object):**
@@ -154,7 +154,7 @@ Sends a single log entry to Leadzone.
 Example:
 
 ```js
-await sdk.criarLog({
+await sdk.createLog({
   apiKey: process.env.LOGZONE_API_KEY,
   project: 'backend-prod',
   level: 'error',
@@ -190,7 +190,7 @@ const sdk = new LogZoneSDK();
 
 async function sendError() {
   try {
-    await sdk.criarLog({
+    await sdk.createLog({
       apiKey: process.env.LOGZONE_API_KEY,
       project: process.env.LOGZONE_PROJECT,
       level: 'error',
@@ -214,7 +214,7 @@ const LogZoneSDK = require('logzone-sdk');
 const sdk = new LogZoneSDK();
 
 module.exports = function errorLogger(err, req, res, next) {
-  sdk.criarLog({
+  sdk.createLog({
     apiKey: process.env.LOGZONE_API_KEY,
     project: process.env.LOGZONE_PROJECT,
     level: 'error',
@@ -234,7 +234,7 @@ module.exports = function errorLogger(err, req, res, next) {
 ---
 
 ## Error handling & retries
-- Always wrap `criarLog` in `try/catch` (or use `.catch`) to handle network issues or invalid parameters.  
+- Always wrap `createLog` in `try/catch` (or use `.catch`) to handle network issues or invalid parameters.  
 - For critical logs you may want to implement a retry/backoff strategy on failure or persist the event locally and retry later.  
 - Avoid blocking application critical paths waiting for remote logging — best practice is to send logs asynchronously and handle failures gracefully.
 
@@ -277,12 +277,12 @@ If you discover a security vulnerability, please report it privately to the main
 This project is licensed under the **MIT License**.
 
 ---
-
 ## Authors
-Developed by **Daniel Fabbri** and **Wendell Lavor**.
+Developed by [Daniel Fabbri](https://www.linkedin.com/daniel-fabbri-019121ba/) and [Wendell Lavor](https://github.com/wendellfranck).
+
 
 ---
 
 ## Changelog
 - **Unreleased**: Add TypeScript types, advanced configuration and batching (planned).  
-- **1.0.0**: Initial minimal SDK (basic `criarLog` method).
+- **1.0.0**: Initial minimal SDK (basic `createLog` method).
